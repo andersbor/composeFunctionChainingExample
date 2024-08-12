@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -13,7 +12,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.example.functionchainingexample.ui.theme.FunctionChainingExampleTheme
 
 class MainActivity : ComponentActivity() {
@@ -23,7 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             FunctionChainingExampleTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Results(innerPadding)
+                    Results(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
@@ -31,8 +29,8 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun Results(innerPadding: PaddingValues) {
-    Column(modifier = Modifier.padding(innerPadding)) {
+private fun Results(modifier: Modifier = Modifier) {
+    Column(modifier = modifier) {
         val result = MyNumber().add(5).subtract(3).toString()
         Result(resultStr = result)
         val result2 = MyNumber(8).add(5).subtract(3).toString()
@@ -54,6 +52,6 @@ fun Result(resultStr: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     FunctionChainingExampleTheme {
-        Results(PaddingValues(8.dp))
+        Results()
     }
 }

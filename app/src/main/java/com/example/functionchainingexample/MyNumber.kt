@@ -1,11 +1,6 @@
 package com.example.functionchainingexample
 
-class MyNumber {
-    private var number: Int
-
-    constructor(number: Int = 0) {
-        this.number = number
-    }
+class MyNumber(private var number: Int = 0) {
 
     // all functions return a modified instance of MyNumber
     fun add(number: Int): MyNumber {
