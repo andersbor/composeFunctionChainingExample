@@ -28,7 +28,12 @@ class MyNumber(private var number: Int = 0) {
         return this
     }
 
-   override fun toString(): String {
+    override fun toString(): String {
         return number.toString()
+    }
+
+    companion object {
+        val MyNumber: MyNumber = MyNumber(0)
+
     }
 }
