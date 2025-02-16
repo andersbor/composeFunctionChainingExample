@@ -1,31 +1,23 @@
 package com.example.functionchainingexample
 
-class MyNumber(private var number: Int = 0) {
+class MyNumber(private val number: Int = 0) {
 
-    // all functions return a modified instance of MyNumber
-    fun add(number: Int): MyNumber {
-        this.number += number
-        return this
+    // all functions return an instance of MyNumber
+    fun add(value: Int): MyNumber {
+        val newNumber: Int = this.number + value
+        return MyNumber(newNumber)
     }
 
-    fun subtract(number: Int): MyNumber {
-        this.number -= number
-        return this
+    fun subtract(value: Int): MyNumber {
+        return MyNumber(this.number - value)
     }
 
-    fun multiply(number: Int): MyNumber {
-        this.number *= number
-        return this
+    fun multiply(value: Int): MyNumber {
+        return MyNumber(this.number * value)
     }
 
-    fun divide(number: Int): MyNumber {
-        this.number /= number
-        return this
-    }
-
-    fun print(): MyNumber {
-        println(number)
-        return this
+    fun divide(value: Int): MyNumber {
+        return MyNumber(this.number / value)
     }
 
     override fun toString(): String {

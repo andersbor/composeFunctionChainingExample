@@ -12,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.functionchainingexample.MyNumber.Companion.MyNumber
 import com.example.functionchainingexample.ui.theme.FunctionChainingExampleTheme
 
@@ -31,13 +32,19 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 private fun Results(modifier: Modifier = Modifier) {
-    Column(modifier = modifier) {
+    Column(modifier = modifier.padding(16.dp)) {
         val result = MyNumber().add(5).subtract(3).toString()
         Result(resultStr = result)
         val result2 = MyNumber(8).add(5).subtract(3).toString()
         Result(resultStr = result2)
         val result3 = MyNumber(10).add(5).subtract(3).divide(4).multiply(2).toString()
         Result(result3)
+
+        try {
+            val result5 = MyNumber(10).divide(0).toString()
+        } catch (e: ArithmeticException) {
+            Result("Error: ${e.message}")
+        }
 
         val result4 = MyNumber.add(5).subtract(7).toString()
         // Companion object, also used in class Modifier
