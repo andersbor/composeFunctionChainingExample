@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+
 import com.example.functionchainingexample.MyNumber.Companion.MyNumber
 import com.example.functionchainingexample.ui.theme.FunctionChainingExampleTheme
 
@@ -46,7 +47,7 @@ private fun Results(modifier: Modifier = Modifier) {
             Result("Error: ${e.message}")
         }
 
-        val result4 = MyNumber.add(5).subtract(7).toString()
+        val result4: String = MyNumber.add(5).subtract(7).toString()
         // Companion object, also used in class Modifier
         Result(result4)
     }

@@ -25,7 +25,6 @@ class MyNumber(private val number: Int = 0) {
     }
 
     companion object {
-        val MyNumber: MyNumber = MyNumber(0)
-
+        val MyNumber: MyNumber = MyNumber(6)
     }
 }
